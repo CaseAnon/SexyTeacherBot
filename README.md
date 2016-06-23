@@ -1,0 +1,2 @@
+# SexyTeacherBot
+Bot for #learninghub
