@@ -221,6 +221,7 @@ while 1:
     if free_for_all == 1:
         allowed = 1
 
+	sentmessage = sentmessage.lower()
     # execute any commands detected from authorised people
     if allowed == 1:#TODO remove this and leave validation only for ?command
         if ("?randomcourse" == sentmessage) or ("?rc" == sentmessage):
@@ -229,7 +230,7 @@ while 1:
           message(courses["c"+str(rand)])
         if ("?goldmine" == sentmessage) or ("?gm" == sentmessage):
           time.sleep(1)
-          message("Enjoy https://ghostbin.com/paste/vb4o6")
+          message("Enjoy. DOWNLOAD: https://ghostbin.com/paste/vb4o6 or https://github.com/caseanon/Dump | WATCH ONLINE: handbookproject.github.io")
         if ("?courseoftheweek" == sentmessage) or ("?cotw" == sentmessage):
           time.sleep(1)
           message(courses[courseoftheweek])
@@ -252,7 +253,7 @@ while 1:
             message("Available commands: ?courseoftheweek, ?desc, ?courseoftheday, ?randomcourse, ?goldmine, ?version, ?help, ?welcome, ?submit. Shorts work too: ?cotw, ?rc, ?gm, etc. Do ?help <fullcommandname> to know more. Eg: ?help desc")
         if ("?welcome" == sentmessage) or ("?w" == sentmessage):
             time.sleep(1)
-            message("Welcome to #learninghub! Here you'll find lots of resources and people to learn hacking/pentesting as well as other IT subjects. Type ?goldmine to get started. Type ?help for more.")
+            message("Welcome to #learninghub! Here you'll find lots of resources and people to learn hacking/pentesting as well as other IT subjects. Type ?goldmine to get started. Type ?desc <coursenumber> to know the description of a course. Type ?help for more.")
         if ("?submit " in sentmessage):
             time.sleep(1)
             request = sentmessage.replace("?submit ", "")
@@ -263,10 +264,22 @@ while 1:
             message("Submit: if you want a course added (from pluralsight for instance) or you want to provide a link type ?submit yourlink / yourrequest")
         if ("?help desc" == sentmessage) or ("?h desc" == sentmessage):
             time.sleep(1)
-            message("This command will provide a description on a given course. Usage: ?desc <coursenumber>. Eg: ?desc 1 - Courses go from c1,c2,c3 and upwards. The course identifier can be found in the ?goldmine")
+            message("This command will provide a description on a given course. Usage: ?desc <coursenumber>. Eg: ?desc 1 - Courses go from 0, 1, 2 and upwards. The course identifier can be found in the ?goldmine")
         if ("?help courseoftheweek" in sentmessage) or ("?h courseoftheweek" in sentmessage):
             time.sleep(1)
             message("This command will print the course decided for the week. Join us :)")
+        if "?luna" == sentmessage:
+            time.sleep(1)
+            message("When I admire the beauty of Luna, my soul expands in the worship of the creator.")
+        if "what of luna" == sentmessage:
+            time.sleep(1)
+            message("Luna is the way, Luna is the light. She's one of a kind, a sight for sore eyes.")			
+        if ("what of anakin" == sentmessage) or ("?anakin" == sentmessage):
+            time.sleep(1)
+            message("You were supposed to bring glory to the navy, not destroy it you faggot")						
+        if ("what of st-84" == sentmessage) or ("?st-84" == sentmessage):
+            time.sleep(1)
+            message("As the blood flows so does the radience of satan.")			
         if ("?help courseoftheday" in sentmessage) or ("?h courseoftheday" in sentmessage):
             time.sleep(1)
             message("This command will print the course decided for the day, for those hardcore enough to do one a day :)")
@@ -289,7 +302,9 @@ while 1:
           if ("?updatecourselist" == sentmessage):
             time.sleep(1)
             courses = {}
+            descriptions = {}
             execfile(coursefile, courses)
+            execfile(descriptionsfile, descriptions)
           if "?command" in sentmessage:
               try:
                 commanddata = sentmessage.replace("?command ", "")
