@@ -72,3 +72,6 @@ c70 = "This course introduces the business case for Scrum, the core Scrum framew
 c71 = "In this introductory course on blogging we will go over a few of the basics of blogging and show the way to get started with blogging immediately."
 c72 = "In this course, we discuss the essential elements to bringing quality content to the masses, making it popular, and monetizing your effort."
 c73 = "In this course, you will be learning about the basics of cloud computing, security best practices for clouds, and other cloud security considerations that will ensure success for your business."
+c74 = "Metasploit is an essential tool in the penetration tester's arsenal. This course will teach you the foundations of using the Metasploit Framework to find and verify vulnerabilities in your systems."
+c75 = "The C Programming Language course is designed to give you everything you need to become a productive C programmer."
+c76 = "This course will provide you with a complete and practical tour of the C programming language and libraries."
