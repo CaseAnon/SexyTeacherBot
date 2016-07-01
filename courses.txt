@@ -74,4 +74,5 @@ c72 = "Building a high traffic profitable blog -- http://www.mediafire.com/downl
 c73 = "Cloud security -- http://www.mediafire.com/download/ka9qu9136x8on4j/Cloud+security.rar"
 c74 = "Introduction to penetration testing using Metasploit -- http://www.mediafire.com/download/5ut59in0l6okeaq/Introduction+to+Penetration+Testing+Using+Metasploit.rar"
 c75 = "C Fundamentals -- http://www.mediafire.com/download/com5mg5fda6mwd6/C+Fundamentals.rar"
-c75 = "C in Action -- http://www.mediafire.com/download/dzr3d2jymdhdqs6/C+in+Action.rar"
+c76 = "C in Action -- http://www.mediafire.com/download/dzr3d2jymdhdqs6/C+in+Action.rar"
+c77 = "Java Fundamentals -- http://www.mediafire.com/download/t5rygwbb45izg71/Java+Fundamentals.rar"
