@@ -75,3 +75,4 @@ c73 = "In this course, you will be learning about the basics of cloud computing,
 c74 = "Metasploit is an essential tool in the penetration tester's arsenal. This course will teach you the foundations of using the Metasploit Framework to find and verify vulnerabilities in your systems."
 c75 = "The C Programming Language course is designed to give you everything you need to become a productive C programmer."
 c76 = "This course will provide you with a complete and practical tour of the C programming language and libraries."
+c77 = "This course provides complete coverage of the Java programming language and serves as a strong foundation for all Java-based development environments including client-based, server-side, and Android."
