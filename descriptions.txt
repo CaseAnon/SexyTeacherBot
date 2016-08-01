@@ -81,3 +81,4 @@ c79 = "In this course, we'll look at the ways the cloud can enable us to build m
 c80 = "This is a fundamental course that provides you with the knowledge that you need to use Wireshark 2.0 to capture packets on any network interface, and to display, navigate, and analyze this packet capture"
 c81 = "In this course, you will learn the ins and outs of planning and executing a penetration test against your own or your clients network. This course is a 10,000 foot view of penetration testing"
 c82 = "This course presents NMAP, a network scanning tool, from basic usage through advanced service analysis."
+c83 = "This is an introductory course on PowerShell and how to use it for basic IT Operations support."
