@@ -82,3 +82,6 @@ c80 = "Wireshark 2.0 -- http://www.mediafire.com/download/n98viipaz131fhq/Wiresh
 c81 = "Introduction to Pentesting -- http://www.mediafire.com/download/b71c8v6tbqxzure/Introduction+to+Pentesting.rar"
 c82 = "Network Security Testing With NMAP -- http://www.mediafire.com/download/3guhkfrhfbvs01b/NMAP.rar"
 c83 =  "Introduction to PowerShell -- http://www.mediafire.com/download/8b63ljih3cjl426/PowerShell_-_Getting_Started.rar"
+c84 =  "Introduction to Arduino -- http://www.mediafire.com/download/pvmstcc4abura43/Arduino.rar"
+c85 =  "Raspberry Pi Home Server -- http://www.mediafire.com/download/sl36dmuomdld4qa/RaspberryPi+HomeServer.rar"
+c86 =  "Raspberry Pi for Developers -- http://www.mediafire.com/download/5u2g1svecr1iukm/Raspberry+for+Devs.rar"
