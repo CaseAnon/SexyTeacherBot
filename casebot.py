@@ -44,6 +44,13 @@ def take_input(chan, s):
 def isWindows():
     return platform.system() == "Windows"
 
+def isNewUser(user):
+    # Top secret
+
+def saveuser(user):
+    # Top secret
+
+
 # Aesthetics
 
 if isWindows():
@@ -68,15 +75,14 @@ else:
         UNDERLINE = '\033[4m'
 
 art = """
-   _____              _______              _               ____        _   
-  / ____|            |__   __|            | |             |  _ \      | |  
- | (___   _____  ___   _| | ___  __ _  ___| |__   ___ _ __| |_) | ___ | |_ 
+   _____              _______              _               ____        _
+  / ____|            |__   __|            | |             |  _ \      | |
+ | (___   _____  ___   _| | ___  __ _  ___| |__   ___ _ __| |_) | ___ | |_
   \___ \ / _ \ \/ / | | | |/ _ \/ _` |/ __| '_ \ / _ \ '__|  _ < / _ \| __|
-  ____) |  __/>  <| |_| | |  __/ (_| | (__| | | |  __/ |  | |_) | (_) | |_ 
+  ____) |  __/>  <| |_| | |  __/ (_| | (__| | | |  __/ |  | |_) | (_) | |_
  |_____/ \___/_/\_\\__, |_|\___|\__,_|\___|_| |_|\___|_|  |____/ \___/ \__|
-                    __/ |                                                  
-                   |___/ 
-
+                    __/ |
+                   |___/
                                   Special thanks to ClaudiaD & leet
 """
 
@@ -210,10 +216,10 @@ while 1:
     senderuser = recvdfix.split(" ")
     senderuser = senderuser[0].split("!")
     senderuser = senderuser[0].strip(":")
-	
+
     if recvd == "":
         exit(); #Hope this works
-	
+
     if "PING :" in recvd:
         recvd = recvd.strip("PING :")
         pong = "PONG : " + recvd
@@ -223,9 +229,13 @@ while 1:
     if free_for_all == 1:
         allowed = 1
 
-	sentmessage = sentmessage.lower()
+    sentmessage = sentmessage.lower()
     # execute any commands detected from authorised people
     if allowed == 1:#TODO remove this and leave validation only for ?command
+    	if "JOIN :#learninghub" in recvd:
+    	    if isNewUser(senderuser):
+                  message("Welcome to #learninghub " + senderuser + "! Here you'll find lots of resources and people to learn hacking/pentesting as well as other IT subjects. Type ?goldmine to get started. Type ?desc <coursenumber> to know the description of a course. You have to use the course number in the ghostbin. Type ?help for more.")
+                  saveuser(senderuser)
         if ("?randomcourse" == sentmessage) or ("?rc" == sentmessage):
           time.sleep(1)
           rand = int(random.random() * file_len(coursefile))
@@ -267,16 +277,16 @@ while 1:
             message("When I admire the beauty of Luna, my soul expands in the worship of the creator.")
         if "what of luna" == sentmessage:
             time.sleep(1)
-            message("Luna is the way, Luna is the light. She's one of a kind, a sight for sore eyes.")			
+            message("Luna is the way, Luna is the light. She's one of a kind, a sight for sore eyes.")
         if ("what of anakin" == sentmessage) or ("?anakin" == sentmessage):
             time.sleep(1)
-            message("You were supposed to bring glory to the navy, not destroy it you faggot")						
+            message("You were supposed to bring glory to the navy, not destroy it you faggot")
         if ("what of claudiad" == sentmessage) or ("?claudiad" == sentmessage):
             time.sleep(1)
-            message("Tearing apart people's souls since forever. She also rides a unicorn.")		
+            message("Tearing apart people's souls since forever. She also rides a unicorn.")
         if ("what of niggers" == sentmessage) or ("?niggers" == sentmessage):
             time.sleep(1)
-            message("They smell.")				
+            message("They smell.")
         if ("?help courseoftheday" in sentmessage) or ("?h courseoftheday" in sentmessage):
             time.sleep(1)
             message("This command will print the course decided for the day, for those hardcore enough to do one a day :)")
