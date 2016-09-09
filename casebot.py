@@ -40,9 +40,6 @@ def take_input(chan, s):
         data = raw_input()
         send_data = (":source PRIVMSG " + channel + " :" + data + "\r\n")
         s.send(send_data)
-# Store data requests
-def storerequest(senderuser, request):
-    # Not pushed due to security reasons
 
 def isWindows():
     return platform.system() == "Windows"
@@ -71,12 +68,14 @@ else:
         UNDERLINE = '\033[4m'
 
 art = """
-  ____               ____        _
- / ___|__ _ ___  ___| __ )  ___ | |_
-| |   / _` / __|/ _ \  _ \ / _ \| __|
-| |__| (_| \__ \  __/ |_) | (_) | |_
- \____\__,_|___/\___|____/ \___/ \__|
-
+   _____              _______              _               ____        _   
+  / ____|            |__   __|            | |             |  _ \      | |  
+ | (___   _____  ___   _| | ___  __ _  ___| |__   ___ _ __| |_) | ___ | |_ 
+  \___ \ / _ \ \/ / | | | |/ _ \/ _` |/ __| '_ \ / _ \ '__|  _ < / _ \| __|
+  ____) |  __/>  <| |_| | |  __/ (_| | (__| | | |  __/ |  | |_) | (_) | |_ 
+ |_____/ \___/_/\_\\__, |_|\___|\__,_|\___|_| |_|\___|_|  |____/ \___/ \__|
+                    __/ |                                                  
+                   |___/ 
 
                                   Special thanks to ClaudiaD & leet
 """
@@ -88,7 +87,7 @@ port = None
 # Config
 config = {}
 execfile("configuration.conf", config)
-version = "This bot was forked from ClaudiaMIND v0.1.3 - Special thanks to ClaudiaD and leet. https://github.com/ClaudiaDAnon/ClaudiaMIND"
+version = "This bot was forked from ClaudiaMIND v0.1.3 - Special thanks to ClaudiaD and leet. https://github.com/ClaudiaDAnon/Hive"
 
 # Courses
 coursefile = "courses.txt"
@@ -139,7 +138,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Setting nicknames and realnames
 nickname = "SexyTeacherBot" # SET THIS VALUE TO BE THE BOT NICKNAME
-username = ""
+username = "G3nn1"
 realname = nickname
 password = ""
 ircd = config["ircd"]
@@ -211,13 +210,16 @@ while 1:
     senderuser = recvdfix.split(" ")
     senderuser = senderuser[0].split("!")
     senderuser = senderuser[0].strip(":")
-
-    print bcolors.OKBLUE + "<" + senderuser + "> " + bcolors.ENDC + sentmessage
+	
+    if recvd == "":
+        exit(); #Hope this works
+	
     if "PING :" in recvd:
         recvd = recvd.strip("PING :")
         pong = "PONG : " + recvd
         s.send(pong)
-
+    else:
+        print bcolors.OKBLUE + "<" + senderuser + "> " + bcolors.ENDC + sentmessage
     if free_for_all == 1:
         allowed = 1
 
@@ -230,7 +232,7 @@ while 1:
           message(courses["c"+str(rand)])
         if ("?goldmine" == sentmessage) or ("?gm" == sentmessage):
           time.sleep(1)
-          message("Enjoy. DOWNLOAD: https://ghostbin.com/paste/vb4o6 or https://github.com/caseanon/Dump | WATCH ONLINE: handbookproject.github.io")
+          message("Get your computer skillz improved with these amazing courses! ->  ONLINE: http://handbookproject.github.io DOWNLOAD: www.ghostbin.com/paste/vb4o6 || www.github.com/caseanon/Dump")
         if ("?courseoftheweek" == sentmessage) or ("?cotw" == sentmessage):
           time.sleep(1)
           message(courses[courseoftheweek])
@@ -250,18 +252,10 @@ while 1:
             message(version)
         if ("?help" == sentmessage) or ("?halp" == sentmessage) or ("?h" == sentmessage):
             time.sleep(1)
-            message("Available commands: ?courseoftheweek, ?desc, ?courseoftheday, ?randomcourse, ?goldmine, ?version, ?help, ?welcome, ?submit. Shorts work too: ?cotw, ?rc, ?gm, etc. Do ?help <fullcommandname> to know more. Eg: ?help desc")
+            message("Available commands: ?courseoftheweek, ?desc, ?courseoftheday, ?randomcourse, ?goldmine, ?version, ?help, ?welcome. Shorts work too: ?cotw, ?rc, ?gm, etc. Do ?help <fullcommandname> to know more. Eg: ?help desc")
         if ("?welcome" == sentmessage) or ("?w" == sentmessage):
             time.sleep(1)
-            message("Welcome to #learninghub! Here you'll find lots of resources and people to learn hacking/pentesting as well as other IT subjects. Type ?goldmine to get started. Type ?desc <coursenumber> to know the description of a course. Type ?help for more.")
-        if ("?submit " in sentmessage):
-            time.sleep(1)
-            request = sentmessage.replace("?submit ", "")
-            storerequest(senderuser, request + "\n")
-            message(senderuser + ", your request has been submitted and is pending validation!")
-        if ("?help submit" == sentmessage) or ("?h submit" == sentmessage):
-            time.sleep(1)
-            message("Submit: if you want a course added (from pluralsight for instance) or you want to provide a link type ?submit yourlink / yourrequest")
+            message("Welcome to #learninghub! Here you'll find lots of resources and people to learn hacking/pentesting as well as other IT subjects. Type ?goldmine to get started. Type ?desc <coursenumber> to know the description of a course. You have to use the course number in the ghostbin. Type ?help for more.")
         if ("?help desc" == sentmessage) or ("?h desc" == sentmessage):
             time.sleep(1)
             message("This command will provide a description on a given course. Usage: ?desc <coursenumber>. Eg: ?desc 1 - Courses go from 0, 1, 2 and upwards. The course identifier can be found in the ?goldmine")
@@ -277,9 +271,12 @@ while 1:
         if ("what of anakin" == sentmessage) or ("?anakin" == sentmessage):
             time.sleep(1)
             message("You were supposed to bring glory to the navy, not destroy it you faggot")						
-        if ("what of st-84" == sentmessage) or ("?st-84" == sentmessage):
+        if ("what of claudiad" == sentmessage) or ("?claudiad" == sentmessage):
             time.sleep(1)
-            message("As the blood flows so does the radience of satan.")			
+            message("Tearing apart people's souls since forever. She also rides a unicorn.")		
+        if ("what of niggers" == sentmessage) or ("?niggers" == sentmessage):
+            time.sleep(1)
+            message("They smell.")				
         if ("?help courseoftheday" in sentmessage) or ("?h courseoftheday" in sentmessage):
             time.sleep(1)
             message("This command will print the course decided for the day, for those hardcore enough to do one a day :)")
@@ -289,9 +286,6 @@ while 1:
         if ("?help goldmine" == sentmessage) or ("?h goldmine" == sentmessage):
             time.sleep(1)
             message("This command will print the goldmine with the full list of courses. Most of them are extracted from pluralsight, others are provided by anons.")
-        if ("?s " in sentmessage):
-            time.sleep(1)
-            message("Submit command does not support shorts yet")
         if isAdmin(senderuser):
           if ("?setcotw " in sentmessage):
             time.sleep(1)
