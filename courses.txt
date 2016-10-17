@@ -85,3 +85,4 @@ c83 =  "Introduction to PowerShell -- http://www.mediafire.com/download/8b63ljih
 c84 =  "Introduction to Arduino -- http://www.mediafire.com/download/pvmstcc4abura43/Arduino.rar"
 c85 =  "Raspberry Pi Home Server -- http://www.mediafire.com/download/sl36dmuomdld4qa/RaspberryPi+HomeServer.rar"
 c86 =  "Raspberry Pi for Developers -- http://www.mediafire.com/download/5u2g1svecr1iukm/Raspberry+for+Devs.rar"
+c87 =  "Django Fundamentals -- http://www.mediafire.com/file/ucv1l1j9y73i8cc/Django+Fundamentals.rar"
