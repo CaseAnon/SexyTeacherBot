@@ -242,7 +242,7 @@ while 1:
           message(courses["c"+str(rand)])
         if ("?goldmine" == sentmessage) or ("?gm" == sentmessage):
           time.sleep(1)
-          message("Get your computer skillz improved with these amazing courses! ->  ONLINE: http://handbookproject.github.io DOWNLOAD: www.ghostbin.com/paste/vb4o6 || www.github.com/caseanon/Dump")
+          message("Get your computer skillz improved with these amazing courses! ->  ONLINE: http://handbookproject.github.io DOWNLOAD: www.ghostbin.com/paste/t7nyv || www.github.com/caseanon/Dump")
         if ("?courseoftheweek" == sentmessage) or ("?cotw" == sentmessage):
           time.sleep(1)
           message(courses[courseoftheweek])
