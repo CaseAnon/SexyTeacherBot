@@ -85,3 +85,4 @@ c83 = "This is an introductory course on PowerShell and how to use it for basic 
 c84 = "This course is an introduction to the Arduino hardware and software platform."
 c85 = "Turn a Raspberry Pi computer into a fully-featured home server. Run your home for a penny a day."
 c86 = "This course is an introduction to the Raspberry Pi platform."
+c87 = "This course teaches the basics of web development with the Django framework. It will teach you everything you need to become a productive Python web developer."
