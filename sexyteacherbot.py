@@ -71,10 +71,19 @@ def isWindows():
     return platform.system() == "Windows"
 
 def isNewUser(user):
-    #Top secret
+    userfile = open("users.txt","r")
+    previous = []
+    for line in userfile:
+        line = line.strip('\r\n')
+        line = line.strip('\n')
+        previous += [line]
+    userfile.close()
+    return sha2(user) not in previous
 
 def saveuser(user):
-    #Top secret
+    save = open("users.txt","a")
+    save.write(sha2(user) + "\n")
+    save.close()
 
 #Better way to not repeat the same thing over and over
 def switch(terms):
@@ -97,17 +106,6 @@ def getNick(recvd):
         return recvd.split("!")[1].split("@")[0]
     except:
         return None
-
-#Add a vote to a course
-def addVote(vote,person):
-    #Top secret
-
-def vote(nick,course):
-    #Top secret
-
-#Select real course of the week
-def checkCourse(i):
-    #Top secret
 
 def rest():
     try:
@@ -146,6 +144,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
     print(bcolors.OKBLUE + "Establishing connection to IRC:" + str(ircd) + "/" + str(ircport) + bcolors.ENDC)
     s.connect((ircd, ircport))
+    s.settimeout(130)
     s = ssl.wrap_socket(s)
     print(bcolors.OKGREEN + "Connection established!" + bcolors.ENDC)
 except Exception as e:
@@ -185,7 +184,6 @@ while True:
     msg = string.split(recvd)[3:] #WHY
     sentmessage = " ".join(msg)[1:].lower()
     senderuser = recvd.split("!")[0][1:]
-
     # Quits the program before it bugging
     if recvd == "":
         exit(0)
@@ -203,7 +201,7 @@ while True:
       rand = random.randint(1,len(courses))
       message(courses["c" + str(rand)])
     elif switch(["?gm","?goldmine"]):
-      message("Get your computer sk1llz improved with these amazing courses! ->  download ->  www.ghostbin.com/paste/bjywz or www.github.com/caseanon/Dump || WATCH ONLINE http://handbookproject.github.io")
+      message("Get your computer sk1llz improved with these amazing courses! -> download -> www.ghostbin.com/paste/j858d or www.github.com/caseanon/Dump || WATCH ONLINE http://handbookproject.github.io")
     elif switch(["?cotw","?courseoftheweek"]):
       message(courses[checkCourse(1)])
     elif "?desc" == sentmessage[:5]:
@@ -213,8 +211,6 @@ while True:
         except Exception as e:
             message("Input a valid course faggot")
             print(e)
-    elif "?vote" == sentmessage[:5]:
-        vote(getNick(recvd),sentmessage[6:])
     elif switch(["?v","?version"]):
         message(version)
     elif switch(["?h","?help","?halp"]):
@@ -223,8 +219,14 @@ while True:
         message("Welcome to #learninghub! Here you'll find lots of resources and people to learn hacking/pentesting as well as other IT subjects. Type ?goldmine to get started. Type ?desc <coursenumber> to know the description of a course. You have to use the course number in the ghostbin. Type ?help for more.")
     elif switch(["?h desc","?help desc"]):
         message("This command will provide a description on a given course. Usage: ?desc <coursenumber>. Eg: ?desc 1 - Courses go from 0, 1, 2 and upwards. The course identifier can be found in the ?goldmine")
+    elif switch(["what of case"]):
+        message("Henry Dorsett Case is a low-level hustler in the underworld of Chiba City, Japan. Once a talented computer hacker, Case was caught stealing from his employer. As punishment, Case's nervous system was damaged with a mycotoxin, leaving him unable to access the global computer network in cyberspace. Unemployable, addicted to drugs, and suicidal, Case desperately searches the Chiba black clinics for a miracle cure.")
+    elif switch(["?try","what of try"]):
+        message("Do or Do not. There is no try.")
     elif switch(["?luna"]):
         message("When I admire the beauty of Luna, my soul expands in the worship of the creator.")
+    elif switch(["?multithr3d","what of multithr3d"]):
+        message("May your htop stats be low and your beards grow long.")
     elif switch(["what of luna"]):
         message("Luna is the way, Luna is the light. She's one of a kind, a sight for sore eyes.")
     elif switch(["?anakin","what of anakin"]):
@@ -239,8 +241,6 @@ while True:
         message("This command will print a random course from the goldmine, in case you want to do one and can't decide")
     elif switch(["?h goldmine","?help goldmine"]):
         message("This command will print the goldmine with the full list of courses. Most of them are extracted from pluralsight, others are provided by anons.")
-    elif switch(["?h vote","?help vote"]):
-        message("This command will add a vote to the course you select. Use this only when you would recommend a course")
     if senderuser in admins:
         if switch(["?updatecourselist"]):
             courses = {}
