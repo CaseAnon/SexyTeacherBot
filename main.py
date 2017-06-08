@@ -148,7 +148,7 @@ def listen_irc():
 
         if msg == "?welcome" or msg == "?w":
             welcome(user)
-        elif msg and msg[0] == '?':
+        elif msg and msg[0] == '?' and msg != '?':
             cmd = msg[1:].split()[0].lower()
 
             if msg == "?goldmine" or msg == "?gm":
