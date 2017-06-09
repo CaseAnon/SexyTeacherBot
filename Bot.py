@@ -79,7 +79,7 @@ class Bot:
             recvd = self.s.recv(1024).decode()
         except socket.timeout:
             print("[-] Error: Socket timeout.")
-            return self.listen()
+            exit()
 
         info = recvd.split()[3:]
         msg = " ".join(info)[1:]
