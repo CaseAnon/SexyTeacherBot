@@ -2,7 +2,6 @@ import hashlib
 import socket
 import ssl
 
-
 class Bot:
     def __init__(self, data):
         self.data = data
