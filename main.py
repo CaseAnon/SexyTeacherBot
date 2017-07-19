@@ -31,13 +31,6 @@ def chat():
         bot.message(msg, conf["chans"][0])
 
 
-def jew():
-    while True:
-        s = random.randint(3600 * 24, 3600 * 36)
-        time.sleep(s)
-        bot.message(data["commands"]["donate"], conf["chans"][0])
-
-
 def welcome(nick):
     greet = ("Welcome to #learninghub %s ! Here you'll find lots of resources and people to learn hacking/pentesting "
              "as well as other IT subjects. Type ?goldmine to get started and get rid of the welcome message. Type "
@@ -142,26 +135,29 @@ def exec_command(cmd, arg):
 
 
 def listen_irc():
-    while True:
-        user, msg, chan = bot.listen()
-        arg = get_argument(msg)
+    try:
+        while True:
+            user, msg, chan = bot.listen()
+            arg = get_argument(msg)
 
-        if msg == "?welcome" or msg == "?w":
-            welcome(user)
-        elif msg and msg[0] == '?' and msg != '?':
-            cmd = msg[1:].split()[0].lower()
+            if msg == "?welcome" or msg == "?w":
+                welcome(user)
+            elif msg and msg[0] == '?' and msg != '?':
+                cmd = msg[1:].split()[0].lower()
 
-            if msg == "?goldmine" or msg == "?gm":
-                add_user(user)
-                response = goldmine(arg)
-            elif cmd in data["commands"]:
-                response = check_nick(data["commands"][cmd], arg)
-            elif cmd in data["defs"]:
-                response = exec_command(cmd, arg)
-            else:
-                response = "The command you are trying to execute does not exist."
+                if msg == "?goldmine" or msg == "?gm":
+                    add_user(user)
+                    response = goldmine(arg)
+                elif cmd in data["commands"]:
+                    response = check_nick(data["commands"][cmd], arg)
+                elif cmd in data["defs"]:
+                    response = exec_command(cmd, arg)
+                else:
+                    response = "The command you are trying to execute does not exist."
 
-            bot.message(response, chan) if response else None
+                bot.message(response, chan) if response else None
+    except KeyboardInterrupt:
+        exit(0)
 
 
 def main():
@@ -171,10 +167,8 @@ def main():
     time.sleep(1)
     bot.join()
     threading.Thread(target=chat).start()
-    threading.Thread(target=jew).start()
     print("[+] Bot is up and working.\n")
-    print(conf["chans"][0])
-    print()
+    print(conf["chans"][0] + "\n")
     listen_irc()
 
 
