@@ -8,4 +8,14 @@ For security purposes, conf.json is incomplete. Lacking both 'users' and 'conf'.
 
 ```JSON
 'users' should contain a list of SHA2 Hashes, which should be the registered nicks.
+
+'conf' = {
+    "irc": str(),       # IRC's address
+    "port": int(),      # IRC's port
+    "nick": str(),      # Bot's nick name
+    "user": str(),      # Bot's user name
+    "real": str(),      # Bot's real name
+    "pass": str()       # Bot's password
+    "chans": [str()],   # Channels bot should connect to, it will only answer in the first one
+}
 ```
