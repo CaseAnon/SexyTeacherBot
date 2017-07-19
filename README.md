@@ -6,7 +6,7 @@ All other files, both main.py and conf.json are specific for #learninghub
 
 For security purposes, conf.json is incomplete. Lacking both 'users' and 'conf'.
 
-```JSON
+```
 'users' should contain a list of SHA2 Hashes, which should be the registered nicks.
 
 'conf' = {
