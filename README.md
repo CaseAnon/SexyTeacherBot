@@ -1,3 +1,5 @@
+# SexyTeacherBot
+
 SexyTeacherBot is an interactive bot used in educational irc channel's, in this case: #learninghub.
 The main purpose of this bot is to write an easy to use interface as well a providing some dynamic, helpful and fun functionality.
 
