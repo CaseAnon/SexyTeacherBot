@@ -6,14 +6,32 @@ All other files, both main.py and conf.json are specific for #learninghub
 
 For security purposes, conf.json is incomplete. Lacking both 'users' and 'conf'.
 
-'users' should contain a list of SHA2 Hashes, which should be the registered nicks.
+```HTML
+<pre>
+    <div class="container">
+        <div class="block two first">
+            <h2>Configuration format</h2>
+            <div class="wrap">
+                'users' should contain a list of SHA2 Hashes, which should be the registered nicks.
+            </div>
+        </div>
+    </div>
 
-'conf' = {
-    "irc": str(),       # IRC's address
-    "port": int(),      # IRC's port
-    "nick": str(),      # Bot's nick name
-    "user": str(),      # Bot's user name
-    "real": str(),      # Bot's real name
-    "pass": str()       # Bot's password
-    "chans": [str()],   # Channels bot should connect to, it will only answer in the first one
-}
+    <div class="container">
+        <div class="block two first">
+            <h2>Configuration format</h2>
+            <div class="wrap">
+                'conf' = {
+                    "irc": str(),       # IRC's address
+                    "port": int(),      # IRC's port
+                    "nick": str(),      # Bot's nick name
+                    "user": str(),      # Bot's user name
+                    "real": str(),      # Bot's real name
+                    "pass": str()       # Bot's password
+                    "chans": [str()],   # Channels bot should connect to, it will only answer in the first one
+                }
+            </div>
+        </div>
+    </div>
+</pre>
+```
