@@ -137,7 +137,12 @@ def exec_command(cmd, arg):
 def listen_irc():
     try:
         while True:
-            user, msg, chan = bot.listen()
+            info = bot.listen()
+
+            if not info:
+                continue
+
+            user, msg, chan = info
             arg = get_argument(msg)
 
             if msg == "?welcome" or msg == "?w":
@@ -157,7 +162,7 @@ def listen_irc():
 
                 bot.message(response, chan) if response else None
     except KeyboardInterrupt:
-        exit(0)
+        exit()
 
 
 def main():
