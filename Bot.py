@@ -2,6 +2,7 @@ import hashlib
 import socket
 import ssl
 
+
 class Bot:
     def __init__(self, data):
         self.data = data
@@ -17,6 +18,8 @@ class Bot:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         try:
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 0)
+            s.setblocking(True)
             s.connect((self.conf["irc"], self.conf["port"]))
             s.settimeout(130)
             self.s = ssl.wrap_socket(s)
@@ -54,7 +57,6 @@ class Bot:
 
             except socket.timeout:
                 raise("[-] Error: ", socket.timeout)
-                exit()
 
     def pong(self, msg):
         num = msg.strip("PING :")
@@ -76,21 +78,21 @@ class Bot:
     def listen(self):
         try:
             recvd = self.s.recv(1024).decode()
+            info = recvd.split()[3:]
+            msg = " ".join(info)[1:]
+            nick = recvd.split("!")[0][1:]
+            chan = recvd.split()[2] if "PRIVMSG #" in recvd else None
+
+            if "PING" in recvd:
+                self.pong(recvd)
+            elif "JOIN" in recvd and self.sha2(nick) not in self.data["users"]:
+                msg = "?welcome"
+            elif " " not in nick:
+                print("<%s> %s" % (nick, msg))
+
+            return nick, msg, chan
+
         except socket.timeout:
             print("[-] Error: Socket timeout.")
             self.connect()
             self.listen()
-
-        info = recvd.split()[3:]
-        msg = " ".join(info)[1:]
-        nick = recvd.split("!")[0][1:]
-        chan = recvd.split()[2] if "PRIVMSG #" in recvd else None
-
-        if "PING" in recvd:
-            self.pong(recvd)
-        elif "JOIN" in recvd and self.sha2(nick) not in self.data["users"]:
-            msg = "?welcome"
-        elif " " not in nick:
-            print("<%s> %s" % (nick, msg))
-
-        return nick, msg, chan
