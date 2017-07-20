@@ -19,9 +19,8 @@ class Bot:
 
         try:
             s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 0)
-            s.setblocking(True)
             s.connect((self.conf["irc"], self.conf["port"]))
-            s.settimeout(130)
+            s.settimeout(200)
             self.s = ssl.wrap_socket(s)
         except Exception as e:
             print("Failed to connect. %s:%d" % (self.conf["irc"], self.conf["port"]))
@@ -94,5 +93,4 @@ class Bot:
 
         except socket.timeout:
             print("[-] Error: Socket timeout.")
-            self.connect()
             self.listen()
