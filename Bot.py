@@ -15,12 +15,12 @@ class Bot:
         return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
     def connect(self):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
         try:
             s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 0)
+            s.setblocking(True)
             s.connect((self.conf["irc"], self.conf["port"]))
-            s.settimeout(200)
             self.s = ssl.wrap_socket(s)
         except Exception as e:
             print("Failed to connect. %s:%d" % (self.conf["irc"], self.conf["port"]))
@@ -76,7 +76,7 @@ class Bot:
 
     def listen(self):
         try:
-            recvd = self.s.recv(1024).decode()
+            recvd = self.s.recv(4096).decode()
             info = recvd.split()[3:]
             msg = " ".join(info)[1:]
             nick = recvd.split("!")[0][1:]
