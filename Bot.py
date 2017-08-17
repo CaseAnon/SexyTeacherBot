@@ -93,4 +93,5 @@ class Bot:
 
         except socket.timeout:
             print("[-] Error: Socket timeout.")
-            self.listen()
+        except Exception as e:
+            print("[-] Error: " + e)
